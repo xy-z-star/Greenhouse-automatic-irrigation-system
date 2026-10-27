@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1200" font-family="'Microsoft YaHei','PingFang SC',Arial,sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1180" height="1120" fill="#fbfbfd"/>
+
+  <!-- 标题 -->
+  <text x="590" y="48" text-anchor="middle" font-size="30" font-weight="bold" fill="#1a1a2e">温室大棚自动灌溉系统 — 接线图</text>
+  <text x="590" y="78" text-anchor="middle" font-size="15" fill="#666">STM32F103C8T6 · DHT22 · 土壤湿度 · JW01-CO2 · 舵机 · OLED · 光敏 · 蜂鸣器 · 直流电机</text>
+
+  <!-- ============ 芯片 ============ -->
+  <rect x="70" y="120" width="230" height="800" rx="10" fill="#f0f2f6" stroke="#2c3e50" stroke-width="2.5"/>
+  <text x="185" y="150" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">STM32F103C8T6</text>
+  <rect x="92" y="162" width="186" height="1" fill="#c8ccd4"/>
+  <text x="185" y="188" text-anchor="middle" font-size="11" fill="#888">（LQFP48 最小系统板）</text>
+
+  <!-- 引脚名（左） -->
+  <g font-size="14" font-family="Consolas,monospace" fill="#2c3e50">
+    <text x="98" y="204">PA0</text>
+    <text x="98" y="248">PA1</text>
+    <text x="98" y="292">PA2</text>
+    <text x="98" y="336">PA3</text>
+    <text x="98" y="380">PA4</text>
+    <text x="98" y="424">PA6</text>
+    <text x="98" y="468">PA7</text>
+    <text x="98" y="512">PA8</text>
+    <text x="98" y="556">PB8</text>
+    <text x="98" y="600">PB9</text>
+    <text x="98" y="644">PB10</text>
+    <text x="98" y="688">PB11</text>
+    <text x="98" y="732">PB12</text>
+    <text x="98" y="776">PB13</text>
+  </g>
+
+  <!-- 引脚功能小字（右） -->
+  <g font-size="10" fill="#95a5a6" text-anchor="end">
+    <text x="175" y="204">DHT22 数据</text>
+    <text x="175" y="248">LED 绿</text>
+    <text x="175" y="292">LED 黄</text>
+    <text x="175" y="336">LED 红</text>
+    <text x="175" y="380">土壤 AO(ADC)</text>
+    <text x="175" y="424">舵机水泵</text>
+    <text x="175" y="468">风扇电机</text>
+    <text x="175" y="512">呼吸灯 PWM</text>
+    <text x="175" y="556">OLED SCL</text>
+    <text x="175" y="600">OLED SDA</text>
+    <text x="175" y="644">JW01 RX←</text>
+    <text x="175" y="688">JW01 TX→</text>
+    <text x="175" y="732">蜂鸣器</text>
+    <text x="175" y="776">光敏 DO</text>
+  </g>
+
+  <rect x="92" y="804" width="186" height="1" fill="#c8ccd4"/>
+  <text x="98" y="836" font-size="13" font-family="Consolas,monospace" fill="#d32f2f">5V</text>
+  <text x="98" y="866" font-size="13" font-family="Consolas,monospace" fill="#ef6c00">3V3</text>
+  <text x="98" y="896" font-size="13" font-family="Consolas,monospace" fill="#333">GND</text>
+
+  <!-- ============ 信号线（芯片 x=300 → 模块 x=520） ============ -->
+  <g stroke="#5b6b7c" stroke-width="2" fill="none">
+    <line x1="300" y1="200" x2="520" y2="200"/>
+    <line x1="300" y1="244" x2="520" y2="244"/>
+    <line x1="300" y1="288" x2="520" y2="288"/>
+    <line x1="300" y1="332" x2="520" y2="332"/>
+    <line x1="300" y1="376" x2="520" y2="376"/>
+    <line x1="300" y1="420" x2="520" y2="420"/>
+    <line x1="300" y1="464" x2="520" y2="464"/>
+    <line x1="300" y1="508" x2="520" y2="508"/>
+    <line x1="300" y1="552" x2="520" y2="552"/>
+    <line x1="300" y1="596" x2="520" y2="596"/>
+    <line x1="300" y1="640" x2="520" y2="640"/>
+    <line x1="300" y1="684" x2="520" y2="684"/>
+    <line x1="300" y1="728" x2="520" y2="728"/>
+    <line x1="300" y1="772" x2="520" y2="772"/>
+  </g>
+
+  <!-- ============ 模块（x=520，宽 300） ============ -->
+
+  <!-- DHT22 -->
+  <rect x="520" y="178" width="300" height="44" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="532" y="198" font-size="15" font-weight="bold" fill="#2e7d32">DHT22 温湿度传感器</text>
+  <text x="532" y="216" font-size="12" fill="#555">DATA←PA0 · VCC=3.3V · GND（加 4.7k 上拉）</text>
+
+  <!-- LED -->
+  <rect x="520" y="226" width="300" height="126" rx="6" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="532" y="248" font-size="15" font-weight="bold" fill="#e65100">三色 LED（共阳）</text>
+  <text x="532" y="272" font-size="12" fill="#555">绿←PA1   黄←PA2   红←PA3</text>
+  <text x="532" y="294" font-size="12" fill="#555">公共端接 3.3V，各色串 220~330Ω</text>
+  <text x="532" y="314" font-size="11" fill="#999">低电平点亮（对应共阳模块）</text>
+  <text x="532" y="336" font-size="11" fill="#999">若为共阴模块则公共端改接 GND、代码反相</text>
+
+  <!-- 土壤湿度 -->
+  <rect x="520" y="356" width="300" height="44" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="532" y="376" font-size="15" font-weight="bold" fill="#2e7d32">土壤湿度传感器</text>
+  <text x="532" y="394" font-size="12" fill="#555">AO→PA4（ADC1_IN4）· VCC=3.3V · GND</text>
+
+  <!-- 舵机水泵 -->
+  <rect x="520" y="404" width="300" height="44" rx="6" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="532" y="424" font-size="15" font-weight="bold" fill="#e65100">舵机（水泵 / 灌溉阀）</text>
+  <text x="532" y="442" font-size="12" fill="#555">信号←PA6（TIM3_CH1）· VCC=独立5V · GND</text>
+
+  <!-- 风扇电机 -->
+  <rect x="520" y="452" width="300" height="44" rx="6" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="532" y="472" font-size="15" font-weight="bold" fill="#e65100">直流电机（风扇）</text>
+  <text x="532" y="490" font-size="12" fill="#555">经 TB6612 驱动 · AIN1←PA7 启停</text>
+
+  <!-- 呼吸灯 -->
+  <rect x="520" y="500" width="300" height="44" rx="6" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="532" y="520" font-size="15" font-weight="bold" fill="#e65100">补光 LED（呼吸灯）</text>
+  <text x="532" y="538" font-size="12" fill="#555">PWM←PA8（TIM1_CH1）· 串限流电阻到 GND</text>
+
+  <!-- OLED -->
+  <rect x="520" y="548" width="300" height="80" rx="6" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
+  <text x="532" y="570" font-size="15" font-weight="bold" fill="#1565c0">OLED 0.96寸（I2C）</text>
+  <text x="532" y="590" font-size="12" fill="#555">SCL←PB8    SDA←PB9</text>
+  <text x="532" y="608" font-size="12" fill="#555">VCC=3.3V · GND（地址 0x78）</text>
+  <text x="532" y="624" font-size="11" fill="#999">注：OLED 模块占用 PB3~PB9 排针，此范围勿接其它模块</text>
+
+  <!-- JW01 -->
+  <rect x="520" y="632" width="300" height="76" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="532" y="654" font-size="15" font-weight="bold" fill="#2e7d32">JW01-CO2 二氧化碳</text>
+  <text x="532" y="676" font-size="12" fill="#555">TX→PB11(USART3_RX)    RX←PB10(USART3_TX)</text>
+  <text x="532" y="696" font-size="12" fill="#555">VCC=5V · GND（PB10/PB11 为 FT 5V 容忍引脚）</text>
+
+  <!-- 蜂鸣器 -->
+  <rect x="520" y="712" width="300" height="44" rx="6" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="532" y="732" font-size="15" font-weight="bold" fill="#e65100">蜂鸣器（有源）</text>
+  <text x="532" y="750" font-size="12" fill="#555">信号←PB12 · VCC=3.3V/5V · GND（低电平响）</text>
+
+  <!-- 光敏 -->
+  <rect x="520" y="760" width="300" height="44" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="532" y="780" font-size="15" font-weight="bold" fill="#2e7d32">光敏传感器模块</text>
+  <text x="532" y="798" font-size="12" fill="#555">DO→PB13 · VCC=3.3V · GND</text>
+
+  <!-- ============ 图例 ============ -->
+  <rect x="850" y="120" width="280" height="120" rx="8" fill="#ffffff" stroke="#c8ccd4" stroke-width="1.5"/>
+  <text x="866" y="146" font-size="15" font-weight="500" fill="#333">图例</text>
+  <rect x="866" y="160" width="16" height="16" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="890" y="173" font-size="12" fill="#555">传感器类</text>
+  <rect x="866" y="186" width="16" height="16" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+  <text x="890" y="199" font-size="12" fill="#555">执行器类</text>
+  <rect x="866" y="212" width="16" height="16" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="890" y="225" font-size="12" fill="#555">显示类</text>
+
+  <!-- ============ 电源分配（底部） ============ -->
+  <rect x="70" y="920" width="1060" height="130" rx="10" fill="#f7f7fa" stroke="#c8ccd4" stroke-width="1.5"/>
+  <text x="90" y="948" font-size="17" font-weight="bold" fill="#1a1a2e">电源分配（所有 GND 必须共地）</text>
+  <g font-size="13">
+    <text x="90" y="978" fill="#ef6c00" font-weight="bold">■ 3.3V（开发板）：</text>
+    <text x="170" y="978" fill="#555">DHT22 · 三色LED · 土壤湿度 · OLED · 光敏 · 蜂鸣器 · TB6612 的 VCC/STBY/PWMA</text>
+    <text x="90" y="1002" fill="#d32f2f" font-weight="bold">■ 外接 5V（≥1A）：</text>
+    <text x="170" y="1002" fill="#555">舵机 VCC + TB6612 的 VM + JW01（充电宝/适配器，一分二并联）</text>
+  </g>
+
+  <rect x="70" y="1060" width="1060" height="90" rx="10" fill="#f7f7fa" stroke="#c8ccd4" stroke-width="1.5"/>
+  <text x="90" y="1088" font-size="16" font-weight="bold" fill="#1a1a2e">电机驱动 TB6612FNG 接线</text>
+  <text x="90" y="1114" font-size="13" fill="#555">AIN1←PA7（启停）· AIN2→GND · PWMA→3.3V · STBY→3.3V（使能）</text>
+  <text x="90" y="1138" font-size="13" fill="#555">VM→外接5V（电机电源）· VCC→3.3V（逻辑电源）· GND 共地 · AO1/AO2→直流电机</text>
+
+  <text x="590" y="1172" text-anchor="middle" font-size="12" fill="#999">注：DHT22 的 DATA 建议加 4.7k~10k 上拉；OLED 若无板载上拉则 SCL/SDA 各加 4.7k 到 3.3V；土壤湿度 AO 用 3.3V 供电免分压。</text>
+</svg>
